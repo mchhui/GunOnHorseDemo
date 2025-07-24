@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="gunonhorse"
+version="1.0.0"
+displayName="Gun on Horse"
+description="该mod为马添加了一个马鞍枪包，用于存在tacz的枪械。并计划支持SWEM星虫马术。"
+author="Hueihuea"
+credits="FML guys, TACZ Dev Team"
+
+[[dependencies.gunonhorse]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gunonhorse]]
+modId="tacz"
+mandatory=false
+versionRange="*"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,7 @@
+{
+  "item.gunonhorse.saddle_gun_bag": "马鞍枪包",
+  "item.gunonhorse.saddle_gun_bag.desc": "用于存放枪械的马鞍包，可与TACZ枪械配合使用。",
+  "gui.saddlegunbag.tile": "马鞍枪包",
+  "gui.saddlegunbag.takeoff": "卸下",
+  "gui.saddlegunbag.back": "返回"
+} 

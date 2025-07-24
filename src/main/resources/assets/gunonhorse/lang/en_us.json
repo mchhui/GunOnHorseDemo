@@ -1,0 +1,7 @@
+{
+  "item.gunonhorse.saddle_gun_bag": "Saddle Gun Bag",
+  "item.gunonhorse.saddle_gun_bag.desc": "A saddle bag for storing guns, compatible with TACZ firearms.",
+  "gui.saddlegunbag.tile": "Saddle Gun Bag",
+  "gui.saddlegunbag.takeoff": "Take Off",
+  "gui.saddlegunbag.back": "Back"
+} 

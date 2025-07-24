@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IFI",
+    "LCL",
+    "NLN"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "F": { "item": "minecraft:gold_ingot" },
+    "L": { "item": "minecraft:leather" },
+    "C": { "tag": "forge:chests" },
+    "N": { "item": "minecraft:iron_nugget" }
+  },
+  "result": {
+    "item": "gunonhorse:saddle_gun_bag",
+    "count": 1
+  }
+} 
