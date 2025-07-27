@@ -63,53 +63,75 @@ public class LayerHorseGunBag<T extends AbstractHorse, M extends EntityModel<T>>
             BlockState state = ModBlocks.SADDLE_GUN_BAG.get().defaultBlockState();
             blockRenderer.getModelRenderer().renderModel(poseStack.last(), bufferSource.getBuffer(RenderType.solid()), state, model, 1.0F, 1.0F, 1.0F, packedLight, OverlayTexture.NO_OVERLAY);
             cap.getSaddleGunBag().getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent((bagcap) -> {
-                first:
-                {
-                    ItemStack displayGun = bagcap.getStackInSlot(0);
-                    if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
-                        poseStack.pushPose();
-                        mat.identity();
-                        mat.translate(0.15f, 0.3f, 0.7f);
-                        mat.rotate(Math.toRadians(90), 0, 1, 0);
-                        mat.rotate(Math.toRadians(70), 0, 0, 1);
-                        mat.scale(0.4f);
-                        poseStack.mulPoseMatrix(mat);
-                        mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
-                        poseStack.popPose();
-                    }
-                    break first;
+                if(entity.getPassengers().size()>0) {
+                    ItemStack displayGun = null;
+                if (bagcap.getStackInSlot(0).getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(bagcap.getStackInSlot(0))).get().getType().equals("pistol")) {
+                    displayGun = bagcap.getStackInSlot(0);
+                } else if (bagcap.getStackInSlot(1).getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(bagcap.getStackInSlot(1))).get().getType().equals("pistol")) {
+                    displayGun = bagcap.getStackInSlot(1);
+                } else if (bagcap.getStackInSlot(2).getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(bagcap.getStackInSlot(2))).get().getType().equals("pistol")) {
+                    displayGun = bagcap.getStackInSlot(2);
                 }
-                second:
-                {
-                    ItemStack displayGun = bagcap.getStackInSlot(1);
-                    if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
+                    if (displayGun!=null) {
                         poseStack.pushPose();
                         mat.identity();
-                        mat.translate(0.8f, 0.3f, 0.7f);
+                        mat.translate(0.15f, 0.45f, 0.55f);
                         mat.rotate(Math.toRadians(90), 0, 1, 0);
-                        mat.rotate(Math.toRadians(70), 0, 0, 1);
-                        mat.rotate(Math.toRadians(180), 1, 0, 0);
+                        mat.rotate(Math.toRadians(85), 0, 0, 1);
                         mat.scale(0.4f);
                         poseStack.mulPoseMatrix(mat);
                         mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
                         poseStack.popPose();
                     }
-                    break second;
-                }
-                third:
-                {
-                    ItemStack displayGun = bagcap.getStackInSlot(2);
-                    if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
-                        poseStack.pushPose();
-                        mat.identity();
-                        mat.translate(0.15f, 0.4f, 0.9f);
-                        mat.rotate(Math.toRadians(90), 0, 1, 0);
-                        mat.scale(0.4f);
-                        poseStack.mulPoseMatrix(mat);
-                        mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
-                        poseStack.popPose();
+                }else {
+                    first:
+                    {
+                        ItemStack displayGun = bagcap.getStackInSlot(0);
+                        if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
+                            poseStack.pushPose();
+                            mat.identity();
+                            mat.translate(0.15f, 0.45f, 0.55f);
+                            mat.rotate(Math.toRadians(90), 0, 1, 0);
+                            mat.rotate(Math.toRadians(70), 0, 0, 1);
+                            mat.scale(0.4f);
+                            poseStack.mulPoseMatrix(mat);
+                            mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
+                            poseStack.popPose();
+                        }
+                        break first;
                     }
-                    break third;
+                    second:
+                    {
+                        ItemStack displayGun = bagcap.getStackInSlot(1);
+                        if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
+                            poseStack.pushPose();
+                            mat.identity();
+                            mat.translate(0.85f, 0.3f, 0.55f);
+                            mat.rotate(Math.toRadians(90), 0, 1, 0);
+                            mat.rotate(Math.toRadians(85), 0, 0, 1);
+                            mat.rotate(Math.toRadians(180), 1, 0, 0);
+                            mat.scale(0.4f);
+                            poseStack.mulPoseMatrix(mat);
+                            mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
+                            poseStack.popPose();
+                        }
+                        break second;
+                    }
+                    third:
+                    {
+                        ItemStack displayGun = bagcap.getStackInSlot(2);
+                        if (displayGun.getItem() instanceof IGun gun && !TimelessAPI.getClientGunIndex(gun.getGunId(displayGun)).get().getType().equals("pistol")) {
+                            poseStack.pushPose();
+                            mat.identity();
+                            mat.translate(0.15f, 0.4f, 0.9f);
+                            mat.rotate(Math.toRadians(90), 0, 1, 0);
+                            mat.scale(0.4f);
+                            poseStack.mulPoseMatrix(mat);
+                            mc.getItemRenderer().renderStatic(entity, displayGun, ItemDisplayContext.FIXED, false, poseStack, bufferSource, entity.level(), packedLight, OverlayTexture.NO_OVERLAY, entity.getId());
+                            poseStack.popPose();
+                        }
+                        break third;
+                    }  
                 }
             });
             poseStack.popPose();

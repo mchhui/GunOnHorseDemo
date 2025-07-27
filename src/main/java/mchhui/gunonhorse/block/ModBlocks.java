@@ -11,5 +11,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModBlocks {
      public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ModGunOnHorse.MODID);
 
-     public static final RegistryObject<Block> SADDLE_GUN_BAG = BLOCKS.register("saddle_gun_bag", () -> new BlockSaddleGunBag(BlockBehaviour.Properties.of()));
+     public static final RegistryObject<Block> SADDLE_GUN_BAG = BLOCKS.register("saddle_gun_bag", () -> new BlockSaddleGunBag(BlockBehaviour.Properties.of().noOcclusion()));
 }

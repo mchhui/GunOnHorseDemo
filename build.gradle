@@ -150,7 +150,10 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    implementation fg.deobf("blank:geckolib:4.7.2")
+    implementation fg.deobf("blank:swem:1.6.3")
     implementation fg.deobf("blank:tacz:1.1.6")
+    implementation fg.deobf("blank:player-animation-lib-forge:1.0.2")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

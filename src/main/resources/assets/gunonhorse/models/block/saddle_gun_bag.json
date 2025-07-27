@@ -3,8 +3,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"texture": "gunonhorse:block/saddle_gun_bag",
-        "particle": "gunonhorse:block/saddle_gun_bag"
+		"texture": "gunonhorse:block/saddle_gun_bag"
 	},
 	"elements": [
 		{
@@ -12,12 +11,12 @@
 			"to": [13.6, 10.3, 10],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 3]},
 			"faces": {
-				"north": {"uv": [3, 0, 5.75, 2.75], "texture": "#texture"},
-				"east": {"uv": [0, 5.5, 1, 8.25], "texture": "#texture"},
-				"south": {"uv": [3, 2.75, 5.75, 5.5], "texture": "#texture"},
-				"west": {"uv": [1, 5.5, 2, 8.25], "texture": "#texture"},
-				"up": {"uv": [4.75, 6.5, 2, 5.5], "texture": "#texture"},
-				"down": {"uv": [7.5, 5.5, 4.75, 6.5], "texture": "#texture"}
+				"north": {"uv": [3, 0, 5.75, 2.75], "texture": "texture"},
+				"east": {"uv": [0, 5.5, 1, 8.25], "texture": "texture"},
+				"south": {"uv": [3, 2.75, 5.75, 5.5], "texture": "texture"},
+				"west": {"uv": [1, 5.5, 2, 8.25], "texture": "texture"},
+				"up": {"uv": [4.75, 6.5, 2, 5.5], "texture": "texture"},
+				"down": {"uv": [7.5, 5.5, 4.75, 6.5], "texture": "texture"}
 			}
 		},
 		{
@@ -25,12 +24,12 @@
 			"to": [13.8, 10.5, 9.4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 3]},
 			"faces": {
-				"north": {"uv": [0, 0, 3, 2.75], "texture": "#texture"},
-				"east": {"uv": [5.75, 1.5, 6.5, 4.25], "texture": "#texture"},
-				"south": {"uv": [0, 2.75, 3, 5.5], "texture": "#texture"},
-				"west": {"uv": [6.5, 1.5, 7.25, 4.25], "texture": "#texture"},
-				"up": {"uv": [8.75, 0.75, 5.75, 0], "texture": "#texture"},
-				"down": {"uv": [8.75, 0.75, 5.75, 1.5], "texture": "#texture"}
+				"north": {"uv": [0, 0, 3, 2.75], "texture": "texture"},
+				"east": {"uv": [5.75, 1.5, 6.5, 4.25], "texture": "texture"},
+				"south": {"uv": [0, 2.75, 3, 5.5], "texture": "texture"},
+				"west": {"uv": [6.5, 1.5, 7.25, 4.25], "texture": "texture"},
+				"up": {"uv": [8.75, 0.75, 5.75, 0], "texture": "texture"},
+				"down": {"uv": [8.75, 0.75, 5.75, 1.5], "texture": "texture"}
 			}
 		}
 	],
@@ -39,7 +38,7 @@
 			"name": "saddle_gun_bag",
 			"origin": [8, 0, 0],
 			"color": 0,
-			"children": [0, 1]
+			"children": [0, 1, 2]
 		}
 	]
 }
