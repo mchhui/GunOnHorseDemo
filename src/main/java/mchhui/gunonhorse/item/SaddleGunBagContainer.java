@@ -2,6 +2,7 @@ package mchhui.gunonhorse.item;
 
 import mchhui.gunonhorse.capability.ModCapabilities;
 import mchhui.gunonhorse.util.HorseSaddleGunBagHelper;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
@@ -130,21 +131,21 @@ public class SaddleGunBagContainer extends AbstractContainerMenu {
             for (int col = 0; col < 3; col++) {
                 int x = firstRowX + col * 18;
                 int y = beginY;
-                this.addSlot(new SaddleGunBagSlot(h, slotIndex++, x, y - 2).onlyWeapon());
+                this.addSlot(new SaddleGunBagSlot(this,h, slotIndex++, x, y - 2).onlyWeapon());
             }
 
             // 第二行：9格
             for (int col = 0; col < 9; col++) {
                 int x = beginX + col * 18;
                 int y = beginY + 18;
-                this.addSlot(new SaddleGunBagSlot(h, slotIndex++, x, y));
+                this.addSlot(new SaddleGunBagSlot(this,h, slotIndex++, x, y));
             }
 
             // 第三行：9格
             for (int col = 0; col < 9; col++) {
                 int x = beginX + col * 18;
                 int y = beginY + 36;
-                this.addSlot(new SaddleGunBagSlot(h, slotIndex++, x, y));
+                this.addSlot(new SaddleGunBagSlot(this,h, slotIndex++, x, y));
             }
         });
     }
@@ -167,5 +168,9 @@ public class SaddleGunBagContainer extends AbstractContainerMenu {
             int slotIndex = col; // 快捷栏槽位索引是0-8
             this.addSlot(new Slot(playerInventory, slotIndex, x, hotbarY));
         }
+    }
+    
+    public LivingEntity getHorse() {
+        return horse;
     }
 }

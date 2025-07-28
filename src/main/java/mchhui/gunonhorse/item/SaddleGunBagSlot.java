@@ -2,19 +2,27 @@ package mchhui.gunonhorse.item;
 
 import javax.annotation.Nonnull;
 
+import com.mojang.datafixers.util.Pair;
 import com.tacz.guns.api.item.IAmmo;
 import com.tacz.guns.api.item.IAttachment;
 import com.tacz.guns.api.item.IGun;
 
+import mchhui.gunonhorse.ModGunOnHorse;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class SaddleGunBagSlot extends SlotItemHandler {
-    public boolean weapon = false;
+    private Pair<ResourceLocation, ResourceLocation> icon = Pair.of(InventoryMenu.BLOCK_ATLAS, ResourceLocation.fromNamespaceAndPath(ModGunOnHorse.MODID, "item/empty_gun_slot"));
+    private boolean weapon = false;
+    private SaddleGunBagContainer con;
 
-    public SaddleGunBagSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+    public SaddleGunBagSlot(SaddleGunBagContainer con, IItemHandler itemHandler, int index, int xPosition, int yPosition) {
         super(itemHandler, index, xPosition, yPosition);
+        this.con = con;
     }
 
     public SaddleGunBagSlot onlyWeapon() {
@@ -39,9 +47,17 @@ public class SaddleGunBagSlot extends SlotItemHandler {
         } else {
             if (stack.getItem() instanceof IAttachment || stack.getItem() instanceof IAmmo) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }
+    }
+
+    @Override
+    public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
+        if (!weapon) {
+            return super.getNoItemIcon();
+        }
+        return icon;
     }
 }

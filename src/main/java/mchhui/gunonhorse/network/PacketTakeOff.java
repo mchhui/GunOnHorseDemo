@@ -7,6 +7,7 @@ import mchhui.gunonhorse.util.HorseSaddleGunBagHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.item.ItemStack;
@@ -50,6 +51,7 @@ public class PacketTakeOff {
                                 HorseSaddleGunBagHelper.setHorseSaddleGunBag(horse, ItemStack.EMPTY);
                                 horse.spawnAtLocation(saddleGunBag);
                             }
+                            horse.playSound(SoundEvents.ARMOR_EQUIP_LEATHER);
                         }
                     }
                 }

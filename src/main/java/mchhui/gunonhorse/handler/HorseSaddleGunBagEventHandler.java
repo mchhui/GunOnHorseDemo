@@ -6,6 +6,7 @@ import mchhui.gunonhorse.item.SaddleGunBagContainerProvider;
 import mchhui.gunonhorse.item.SaddleGunBagContainer.OpenFrom;
 import mchhui.gunonhorse.util.HorseSaddleGunBagHelper;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.HorseInventoryMenu;
@@ -52,6 +53,7 @@ public class HorseSaddleGunBagEventHandler {
                     
                     // 消耗玩家手中的马鞍包
                     heldItem.shrink(1);
+                    horse.playSound(SoundEvents.ARMOR_EQUIP_LEATHER);
                     event.setCanceled(true);
                 }
             }
@@ -63,6 +65,7 @@ public class HorseSaddleGunBagEventHandler {
         if(event.getEntity().level().isClientSide()) {
             return;
         }
+//        System.out.println(event.getContainer());
         if(event.getContainer() instanceof HorseInventoryMenu) {
             if(openHorseGuiPlayers.contains(event.getEntity().getUUID())) {
                 openHorseGuiPlayers.remove(event.getEntity().getUUID());
